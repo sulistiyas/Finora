@@ -3,57 +3,46 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Team extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'default_currency_id',
+        'owner_id',
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    protected function casts(): array
+    public function owner(): BelongsTo
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->belongsTo(User::class, 'owner_id');
     }
 
-    public function defaultCurrency(): BelongsTo
+    public function members(): BelongsToMany
     {
-        return $this->belongsTo(Currency::class, 'default_currency_id');
-    }
-
-    public function teams(): BelongsToMany
-    {
-        return $this->belongsToMany(Team::class, 'team_user')
+        return $this->belongsToMany(User::class, 'team_user')
             ->using(TeamUser::class)
             ->withPivot(['role_id', 'status'])
             ->withTimestamps();
     }
 
-    public function ownedTeams(): HasMany
+    public function teamUsers(): HasMany
     {
-        return $this->hasMany(Team::class, 'owner_id');
+        return $this->hasMany(TeamUser::class);
     }
 
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class);
+    }
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class);
     }
 
     public function transactions(): HasMany

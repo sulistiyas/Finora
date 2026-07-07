@@ -1,23 +1,87 @@
 @import "tailwindcss";
 
 .login-page {
-    @apply min-h-screen flex items-center justify-center bg-gray-50;
+    @apply min-h-screen bg-gray-50;
 }
 
-.login-container {
-    @apply w-full max-w-md px-4;
+.login-shell {
+    @apply grid min-h-screen grid-cols-1 lg:grid-cols-2;
+}
+
+/* Left brand panel */
+
+.login-brand {
+    @apply hidden lg:flex items-center justify-center bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800 px-10 py-12 text-white;
+}
+
+.login-brand-inner {
+    @apply max-w-md;
+}
+
+.login-brand-logo {
+    @apply flex items-center gap-2 mb-10;
+}
+
+.login-brand-logo-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-xl bg-white/15;
+}
+
+.login-brand-logo-icon svg {
+    @apply h-5 w-5;
+}
+
+.login-brand-name {
+    @apply text-xl font-semibold tracking-tight;
+}
+
+.login-brand-title {
+    @apply text-3xl font-bold leading-snug mb-4;
+}
+
+.login-brand-desc {
+    @apply text-indigo-100 mb-10 leading-relaxed;
+}
+
+.login-brand-features {
+    @apply flex flex-col gap-4;
+}
+
+.login-brand-feature {
+    @apply flex items-center gap-3 text-sm text-indigo-50;
+}
+
+.login-brand-feature-icon {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/15;
+}
+
+.login-brand-feature-icon svg {
+    @apply h-4 w-4;
+}
+
+/* Right form panel */
+
+.login-panel {
+    @apply flex items-center justify-center px-4 py-12 sm:px-6;
 }
 
 .login-card {
-    @apply bg-white shadow-md rounded-lg p-8;
+    @apply w-full max-w-md;
+}
+
+.login-header {
+    @apply mb-8;
 }
 
 .login-title {
-    @apply text-2xl font-semibold text-gray-800 mb-6 text-center;
+    @apply text-2xl font-bold text-gray-900 mb-1;
+}
+
+.login-subtitle {
+    @apply text-sm text-gray-500;
 }
 
 .login-alert {
-    @apply mb-4 rounded-md p-3 text-sm;
+    @apply mb-5 rounded-lg p-3 text-sm;
 }
 
 .login-alert--error {
@@ -25,11 +89,11 @@
 }
 
 .login-form {
-    @apply flex flex-col gap-4;
+    @apply flex flex-col gap-5;
 }
 
 .login-field {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col gap-1.5;
 }
 
 .login-field--inline {
@@ -41,7 +105,9 @@
 }
 
 .login-input {
-    @apply w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+    @apply w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm outline-none transition
+        focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+        disabled:bg-gray-100 disabled:text-gray-400;
 }
 
 .login-input-wrapper {
@@ -49,7 +115,7 @@
 }
 
 .login-toggle-password {
-    @apply absolute right-3 text-xs text-blue-600 hover:underline;
+    @apply absolute right-3 text-xs font-medium text-indigo-600 hover:text-indigo-700 hover:underline;
 }
 
 .login-checkbox-label {
@@ -57,9 +123,58 @@
 }
 
 .login-checkbox {
-    @apply rounded border-gray-300 text-blue-600 focus:ring-blue-500;
+    @apply rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
 }
 
 .login-button {
-    @apply w-full bg-blue-600 text-white rounded-md py-2 text-sm font-medium hover:bg-blue-700 transition;
+    @apply w-full rounded-lg bg-indigo-600 text-white py-2.5 text-sm font-semibold transition
+        hover:bg-indigo-700 disabled:opacity-70 disabled:cursor-not-allowed;
+}
+
+.login-divider {
+    @apply relative flex items-center justify-center my-7 text-xs text-gray-400;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    @apply flex-1 border-t border-gray-200;
+}
+
+.login-divider span {
+    @apply px-3 whitespace-nowrap;
+}
+
+.login-demo-list {
+    @apply flex flex-col gap-3;
+}
+
+.login-demo-btn {
+    @apply flex w-full items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-left
+        transition hover:border-indigo-300 hover:bg-indigo-50/50
+        disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.login-demo-avatar {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-sm font-semibold text-indigo-700;
+}
+
+.login-demo-info {
+    @apply flex flex-1 flex-col;
+}
+
+.login-demo-name {
+    @apply text-sm font-semibold text-gray-800;
+}
+
+.login-demo-role {
+    @apply text-xs text-gray-500;
+}
+
+.login-demo-arrow {
+    @apply text-gray-400;
+}
+
+.login-demo-arrow svg {
+    @apply h-4 w-4;
 }

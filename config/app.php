@@ -56,6 +56,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Contact WhatsApp Number
+    |--------------------------------------------------------------------------
+    |
+    | Nomor WhatsApp yang digunakan pada tombol "Contact Us" di sidebar.
+    | Gunakan format internasional tanpa tanda "+" (contoh: 6281234567890).
+    |
+    */
+
+    'contact_whatsapp' => env('APP_CONTACT_WHATSAPP', '6282110873602'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

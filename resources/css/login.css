@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+.login-page {
+    @apply min-h-screen flex items-center justify-center bg-gray-50;
+}
+
+.login-container {
+    @apply w-full max-w-md px-4;
+}
+
+.login-card {
+    @apply bg-white shadow-md rounded-lg p-8;
+}
+
+.login-title {
+    @apply text-2xl font-semibold text-gray-800 mb-6 text-center;
+}
+
+.login-alert {
+    @apply mb-4 rounded-md p-3 text-sm;
+}
+
+.login-alert--error {
+    @apply bg-red-50 text-red-700 border border-red-200;
+}
+
+.login-form {
+    @apply flex flex-col gap-4;
+}
+
+.login-field {
+    @apply flex flex-col gap-1;
+}
+
+.login-field--inline {
+    @apply flex-row items-center;
+}
+
+.login-label {
+    @apply text-sm font-medium text-gray-700;
+}
+
+.login-input {
+    @apply w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.login-input-wrapper {
+    @apply relative flex items-center;
+}
+
+.login-toggle-password {
+    @apply absolute right-3 text-xs text-blue-600 hover:underline;
+}
+
+.login-checkbox-label {
+    @apply flex items-center gap-2 text-sm text-gray-600;
+}
+
+.login-checkbox {
+    @apply rounded border-gray-300 text-blue-600 focus:ring-blue-500;
+}
+
+.login-button {
+    @apply w-full bg-blue-600 text-white rounded-md py-2 text-sm font-medium hover:bg-blue-700 transition;
+}

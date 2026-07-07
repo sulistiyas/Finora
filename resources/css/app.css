@@ -9,3 +9,107 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.app-layout {
+    @apply flex min-h-screen bg-gray-50;
+}
+
+.sidebar {
+    @apply w-64 bg-gray-900 text-white flex flex-col;
+}
+
+.sidebar-brand {
+    @apply flex items-center justify-between px-4 py-4 border-b border-gray-800;
+}
+
+.sidebar-brand-text {
+    @apply font-semibold text-lg;
+}
+
+.sidebar-toggle {
+    @apply md:hidden text-white;
+}
+
+.sidebar-nav {
+    @apply flex flex-col mt-4;
+}
+
+.sidebar-link {
+    @apply px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition;
+}
+
+.sidebar-link--active {
+    @apply bg-gray-800 text-white font-medium;
+}
+
+.app-main {
+    @apply flex-1 flex flex-col;
+}
+
+.app-header {
+    @apply flex items-center justify-between bg-white px-6 py-4 border-b border-gray-200;
+}
+
+.app-header-title {
+    @apply text-lg font-semibold text-gray-800;
+}
+
+.app-header-user {
+    @apply flex items-center gap-3;
+}
+
+.app-header-user-name {
+    @apply text-sm text-gray-600;
+}
+
+.app-header-logout {
+    @apply text-sm text-red-600 hover:underline;
+}
+
+.app-content {
+    @apply flex-1 p-6;
+}
+
+.app-footer {
+    @apply px-6 py-4 border-t border-gray-200 bg-white;
+}
+
+.app-footer-text {
+    @apply text-xs text-gray-500 text-center;
+}
+
+.dashboard-summary {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6;
+}
+
+.dashboard-card {
+    @apply bg-white rounded-lg shadow-sm p-4 flex flex-col gap-1;
+}
+
+.dashboard-card-label {
+    @apply text-sm text-gray-500;
+}
+
+.dashboard-card-value {
+    @apply text-2xl font-semibold text-gray-800;
+}
+
+.dashboard-section {
+    @apply bg-white rounded-lg shadow-sm p-4 mb-6;
+}
+
+.dashboard-section-title {
+    @apply text-base font-semibold text-gray-800 mb-3;
+}
+
+.dashboard-table {
+    @apply w-full text-sm text-left;
+}
+
+.dashboard-table thead th {
+    @apply text-xs text-gray-500 uppercase border-b border-gray-200 pb-2;
+}
+
+.dashboard-table tbody td {
+    @apply py-2 border-b border-gray-100 text-gray-700;
+}

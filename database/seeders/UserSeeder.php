@@ -18,12 +18,12 @@ class UserSeeder extends Seeder
      * User dengan email tetap untuk kebutuhan login/testing.
      * Password default hanya untuk development, wajib diganti di production.
      *
-     * @var array<int, array{name: string, email: string, password: string}>
+     * @var array<int, array{name: string, email: string, password: string, is_super_admin: bool}>
      */
     private array $users = [
-        ['name' => 'Super Admin', 'email' => 'admin@example.com', 'password' => 'password'],
-        ['name' => 'Budi Santoso', 'email' => 'budi@example.com', 'password' => 'password'],
-        ['name' => 'Siti Aminah', 'email' => 'siti@example.com', 'password' => 'password'],
+        ['name' => 'Super Admin', 'email' => 'admin@example.com', 'password' => 'password', 'is_super_admin' => true],
+        ['name' => 'Budi Santoso', 'email' => 'budi@example.com', 'password' => 'password', 'is_super_admin' => false],
+        ['name' => 'Siti Aminah', 'email' => 'siti@example.com', 'password' => 'password', 'is_super_admin' => false],
     ];
 
     public function run(): void
@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
                     'name' => $user['name'],
                     'password' => Hash::make($user['password']),
                     'default_currency_id' => $defaultCurrencyId,
+                    'is_super_admin' => $user['is_super_admin'],
                     'email_verified_at' => now(),
                 ],
             );
@@ -50,6 +51,7 @@ class UserSeeder extends Seeder
                 'email' => "user{$i}@example.com",
                 'password' => Hash::make('password'),
                 'default_currency_id' => $defaultCurrencyId,
+                'is_super_admin' => false,
                 'email_verified_at' => now(),
             ]);
         }

@@ -26,9 +26,11 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CurrencySeeder::class,
+            UserSeeder::class,
             PermissionSeeder::class,
             RoleSeeder::class,
             CategorySeeder::class,
+            TeamSeeder::class,
         ]);
     }
 }
